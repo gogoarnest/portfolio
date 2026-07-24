@@ -67,6 +67,7 @@ a {
   z-index: 50;
   background: rgba(11, 18, 32, 0.7);
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(230, 237, 246, 0.08);
 }
 
@@ -151,6 +152,9 @@ a {
   background: #2f81f7;
   border: 1px solid #2f81f7;
   color: #0b1220;
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
 }
 
 .btn:hover {
@@ -196,6 +200,7 @@ a {
   margin: 0 auto;
 }
 
+/* Hover على صورتك الشخصية فقط */
 .avatar {
   display: block;
   width: 100%;
@@ -204,6 +209,19 @@ a {
   object-position: center;
   border-radius: 12px;
   margin-bottom: 12px;
+
+  transition:
+    transform 0.4s ease,
+    filter 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+@media (hover: hover) {
+  .avatar:hover {
+    transform: scale(1.035);
+    filter: brightness(1.08);
+    box-shadow: 0 16px 35px rgba(47, 129, 247, 0.3);
+  }
 }
 
 .hero-card-info h3 {
@@ -414,20 +432,8 @@ a {
 
 @media (max-width: 520px) {
   .nav {
-    flex-direction: column;
+    flex-direction: row;
     gap: 10px;
-  }
-
-  .links {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 8px;
-  }
-
-  .links a {
-    font-size: 13px;
-    padding: 6px 8px;
   }
 
   .hero-text h1 {
@@ -446,5 +452,15 @@ a {
 
   .project-image {
     max-height: 220px;
+  }
+
+  .project-head {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .footer-row {
+    align-items: flex-start;
+    flex-direction: column;
   }
 }
